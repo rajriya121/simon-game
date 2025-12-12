@@ -7,9 +7,9 @@
  var started = false;
  var level = 0;
 
- jQuery(document).keypress(function() {
+ jQuery(document).on("keypress touchstart",function() {
     if(!started) {
-        jQuery("#level-title").text("level" + level);
+        jQuery("#level-title").text("Level" + level);
         nextSequence();
         started = true;
     }
@@ -78,4 +78,5 @@ jQuery("#"+ currentColor).removeClass("pressed");
    level = 0;
    gamePattern = [];
    started = false;
+
   }
