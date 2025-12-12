@@ -7,9 +7,9 @@
  var started = false;
  var level = 0;
 
- jQuery(document).on("keypress touchstart",function() {
+ jQuery(document).on("keydown touchstart",function() {
     if(!started) {
-        jQuery("#level-title").text("Level" + level);
+        jQuery("#level-title").text("Level " + level);
         nextSequence();
         started = true;
     }
@@ -39,7 +39,7 @@ function checkAnswer(currentLevel) {
     playSound("wrong");
 
     jQuery("body").addClass("game-over");
-    jQuery("#level-title").text("game over, press any key to start");
+    jQuery("#level-title").text("Game over, press any key to start");
 
 
     setTimeout(function(){
@@ -54,7 +54,7 @@ function checkAnswer(currentLevel) {
 function nextSequence() {
     userClickedPattern = [];
     level++;
-    jQuery("#level-title").text("level" + level);
+    jQuery("#level-title").text("Level " + level);
     var randomNumber = Math.floor(Math.random() * 4);
     var randomChosenColor = buttonColors[randomNumber];
     gamePattern.push(randomChosenColor);
@@ -80,3 +80,4 @@ jQuery("#"+ currentColor).removeClass("pressed");
    started = false;
 
   }
+
